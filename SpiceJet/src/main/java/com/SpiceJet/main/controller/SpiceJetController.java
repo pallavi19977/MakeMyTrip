@@ -29,9 +29,10 @@ public class SpiceJetController
 		return mmt;
 	}
 	@GetMapping("/getSpiceJetData")
-	public List getSpiceJetData()
+	public List getSpiceJetDataaa()
 	{
 		List al=ms.getSpiceJetData();
+		
 		return al;
 	}
 	@PutMapping("/updateflightData/{flightId}")
