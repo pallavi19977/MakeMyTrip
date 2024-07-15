@@ -43,7 +43,7 @@ public class HomeController
 	public String deleteFlight(@PathVariable int flightId)
 	{
 		fsi.deleteFlightInfo(flightId);
-		return "Flight data deleted successfully!";
+		return "Flight data deleted successfully!!!!";
 	}
 	
 	@PatchMapping("/modifyFlightTime/{flightId}")
