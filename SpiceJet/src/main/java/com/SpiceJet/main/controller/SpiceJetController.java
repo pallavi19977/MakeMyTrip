@@ -20,35 +20,51 @@ import com.SpiceJet.main.model.Flight;
 public class SpiceJetController 
 {
 	@Autowired
-	private SpiceJetServiceI ms;
+	private SpiceJetServiceI ss;
 	
-	@PostMapping("/SaveSpiceJetInfo")
-	public Flight SaveKarveNagar(@RequestBody Flight mt )
+	@PostMapping("/SaveFlightData")
+	public String SaveFlightData(@RequestBody Flight fr)
 	{
-		Flight mmt=ms.SaveSpiceJetInfo(mt);
-		return mmt;
+		Flight fly=ss.saveFlightData(fr);
+		return "Save Flight Data Successfully";
 	}
-	@GetMapping("/getSpiceJetData")
-	public List getSpiceJetDataaa()
+	@GetMapping("/getAllFlightData")
+	public List getFlightData()
 	{
-		List al=ms.getSpiceJetData();
-		
+		List al=ss.getFlightData();
 		return al;
 	}
-	@PutMapping("/updateflightData/{flightId}")
-	public ResponseEntity<String> updateData(@PathVariable int Id,
-			                                    @RequestBody Flight myt)
+	@GetMapping("/getAllByFlightName/{flightName}")
+	public List getAllByFlightName(@PathVariable String flightName)
 	{
-		ms.updateData(Id,myt);
-		return new ResponseEntity<String> ("DataUpdated..",HttpStatus.OK);
+		List al=ss.getAllByFlightName(flightName);
+		return al;
+	}
+	
+	@GetMapping("/getByFlightNameFromTo/{flightName}/{flightFrom}/{flightTo}")
+	public List getByFlightNameFromTo(@PathVariable String flightName,@PathVariable String flightFrom,@PathVariable String flightTo)
+	{
+		List al=ss.getByFlightNameFromTo(flightName,flightFrom,flightTo);
+		return al;
+	}
+	@GetMapping("/getAllBydate/{journeyDate}")
+	public List getByFlightDate(@PathVariable String journeyDate)
+	{
+		List al=ss.getByFlightDate(journeyDate);
+		return al;
+	}
+	@PutMapping("/updateFlightData/{flightId}")
+	public ResponseEntity<String> updateFlightData(@PathVariable int flightId,@RequestBody Flight fr)
+	{
+		ss.updateFlightData(flightId,fr);
+		return new ResponseEntity<String> ("Data Updated",HttpStatus.OK);
 		
 	}
 	@DeleteMapping("/deleteSingleData/{flightId}")
-	public String deleteData(@PathVariable("makemytripflightId")int makemytripflightId)
+	public String deleteData(@PathVariable("flightId")int flightId)
 	{
-		ms.deleteData(makemytripflightId);
-		return "Deleted Successfully....";
+		ss.deleteIdData(flightId);
+		return "Data Deleted";
 		
 	}
-
 }
