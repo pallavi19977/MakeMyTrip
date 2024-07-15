@@ -25,7 +25,7 @@ public class FController {
 	public String regSTData(@RequestBody Flight f)
 	{
 		Flight fl=fs.saveFData(f);
-		return " Flight Data Registered....";
+		return " Flight Data Registered........!!";
 	}
 	@GetMapping("/getAllFData")
 	public List getFData()
