@@ -17,38 +17,61 @@ public class SpiceJetImpl implements SpiceJetServiceI
 	private SpiceJetRepository sr;
 
 	@Override
-	public Flight SaveSpiceJetInfo(Flight mt) 
+	public Flight saveFlightData(Flight fr) 
 	{
-		Flight mmt=sr.save(mt);
-		return mmt;
+		Flight fly=sr.save(fr);
+		return fly;
 	}
 
 	@Override
-	public List getSpiceJetData() 
+	public List getFlightData() 
 	{
-		return sr.findAll();
+		List<Flight> fly=sr.findAll();
+		return fly;
 	}
 
 	@Override
-	public void updateData(int id, Flight myt) 
+	public List getAllByFlightName(String flightName) {
+		List al=sr.getAllByFlightName(flightName);
+		return al;
+	}
+
+	@Override
+	public List getByFlightNameFromTo(String flightName, String flightFrom, String flightTo) 
 	{
-		Optional<Flight>opMyt=sr.findById(id);
-		if(opMyt.isEmpty())
+		List al=sr.getByFlightNameFromTo(flightName,flightFrom,flightTo);
+		return al;
+	}
+
+	@Override
+	public List getByFlightDate(String journeyDate) 
+	{
+		List<Flight>fly=sr.getByFlightDate(journeyDate);
+		return fly.stream().sorted((f1,f2)->f1.getJourneyDate().compareTo(f2.getJourneyDate())).toList();
+	}
+
+	@Override
+	public void updateFlightData(int flightId, Flight fr) {
+		Optional<Flight>ofl=sr.findById(flightId);
+		if(ofl.isPresent())
 		{
-		sr.save(myt);
+			sr.save(fr);
+			
 		}
-		else
+		else 
 		{
-			throw new RuntimeException("User ID is Not Present");
+			throw new RuntimeException("User with id: " +flightId+ " flightId Not Present");
 		}
 	}
-
 
 	@Override
-	public void deleteData(int makemytripflightId) 
+	public void deleteIdData(int flightId) 
 	{
-		sr.deleteById(makemytripflightId);
+		sr.deleteById(flightId);
+		
 	}
+
+	
 
 	
 	
