@@ -1,4 +1,4 @@
-package com.cjc.main.model;
+package com.indigo.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

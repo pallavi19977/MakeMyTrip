@@ -1,10 +1,12 @@
-package com.cjc.main.repository;
+package com.indigo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import com.cjc.main.model.Flight;
+
+import com.indigo.model.Flight;
+
 import jakarta.transaction.Transactional;
 
 @Repository

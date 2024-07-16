@@ -1,4 +1,4 @@
-package com.cjc.main;
+package com.indigo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
