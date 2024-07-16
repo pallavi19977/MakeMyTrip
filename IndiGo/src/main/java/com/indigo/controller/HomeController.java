@@ -1,4 +1,4 @@
-package com.cjc.main.controller;
+package com.indigo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cjc.main.model.Flight;
-import com.cjc.main.servicei.FlightServiceI;
+import com.indigo.model.Flight;
+import com.indigo.servicei.FlightServiceI;
 
 @RestController
 public class HomeController 

@@ -1,13 +1,13 @@
-package com.cjc.main.serviceimpl;
+package com.indigo.serviceimpl;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cjc.main.model.Flight;
-import com.cjc.main.repository.FlightRepository;
-import com.cjc.main.servicei.FlightServiceI;
+import com.indigo.model.Flight;
+import com.indigo.repository.FlightRepository;
+import com.indigo.servicei.FlightServiceI;
 
 import jakarta.transaction.Transactional;
 

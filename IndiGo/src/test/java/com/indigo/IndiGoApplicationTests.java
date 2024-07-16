@@ -1,4 +1,4 @@
-package com.cjc.main;
+package com.indigo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,6 +1,6 @@
-package com.cjc.main.servicei;
+package com.indigo.servicei;
 
-import com.cjc.main.model.Flight;
+import com.indigo.model.Flight;
 
 public interface FlightServiceI 
 {
