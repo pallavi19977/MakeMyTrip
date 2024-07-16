@@ -6,12 +6,23 @@ import com.SpiceJet.main.model.Flight;
 
 public interface SpiceJetServiceI {
 
-	public Flight SaveSpiceJetInfo(Flight mt);
+	public Flight saveFlightData(Flight fr);
 
-	public List getSpiceJetData();
+	public List getFlightData();
 
-	public void updateData(int Id, Flight myt);
+	public List getAllByFlightName(String flightName);
 
-	public void deleteData(int makemytripflightId);
+	public List getByFlightNameFromTo(String flightName, String flightFrom, String flightTo);
+
+	public List getByFlightDate(String journeyDate);
+
+	public void updateFlightData(int flightId, Flight fr);
+
+	public void deleteIdData(int flightId);
+
+	
+
+	
+	
 
 }
