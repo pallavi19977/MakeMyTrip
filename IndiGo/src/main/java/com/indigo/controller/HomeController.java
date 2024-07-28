@@ -1,5 +1,7 @@
 package com.indigo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +31,34 @@ public class HomeController
 	public Iterable<Flight> getAllFlightsData()
 	{
 		Iterable<Flight> flightList=fsi.getAllFlightsInfo();
+		return flightList;
+	}
+	
+	@GetMapping("/getFlightById/{flightId}")
+	public Flight getSingleFlightById(@PathVariable int flightId)
+	{
+		Flight fl=fsi.getSingleFlightInfoById(flightId);
+		return fl;
+	}
+	
+	@GetMapping("/getFlightsByName/{flightName}")
+	public List<Flight> getAllFlightsByName(@PathVariable String flightName)
+	{
+		List<Flight> flightList=fsi.getAllFlightsInfoByName(flightName);
+		return flightList;
+	}
+	
+	@GetMapping("/getFlightsByFromTo/{flightFrom}/{flightTo}")
+	public List<Flight> getAllFlightsByFromTo(@PathVariable String flightFrom, @PathVariable String flightTo)
+	{
+		List<Flight> flightList=fsi.getAllFlightsInfoByFromTo(flightFrom, flightTo);
+		return flightList;
+	}
+	
+	@GetMapping("/getFlightsByDate/{journeyDate}")
+	public List<Flight> getAllFlightsByDate(@PathVariable String journeyDate)
+	{
+		List<Flight> flightList=fsi.getAllFlightsInfoByDate(journeyDate);
 		return flightList;
 	}
 	

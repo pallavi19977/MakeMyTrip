@@ -1,5 +1,6 @@
 package com.indigo.serviceimpl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,36 @@ public class FlightServiceImpl implements FlightServiceI {
 	@Override
 	public Iterable<Flight> getAllFlightsInfo() {
 		return fr.findAll();
+	}
+	
+	// Get flight by flightId
+	@Override
+	public Flight getSingleFlightInfoById(int flightId) {
+		Optional<Flight> flightOp = fr.findById(flightId);
+		Flight fl = flightOp.get();
+		return fl;
+	}
+	
+	@Override
+	public List<Flight> getAllFlightsInfoByName(String flightName) 
+	{
+		List<Flight> flightList = fr.getByflightName(flightName);
+		return flightList.stream().sorted((b1, b2) -> b1.getFlightName().compareTo(b2.getFlightName())).toList();
+	}
+	
+	// Get flight list by flight From and to
+	@Override
+	public List<Flight> getAllFlightsInfoByFromTo(String flightFrom, String flightTo) {
+		List<Flight> flightList = fr.getByFromTo(flightFrom, flightTo);
+		return flightList.stream().toList();
+	}
+	
+	// Get flight list by journey date
+	@Override
+	public List<Flight> getAllFlightsInfoByDate(String journeyDate)
+	{
+		List<Flight> flightList = fr.getByjourneyDate(journeyDate);
+		return flightList.stream().sorted((b1, b2) -> b1.getJourneyDate().compareTo(b2.getJourneyDate())).toList();
 	}
 
 	//update

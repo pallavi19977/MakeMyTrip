@@ -1,5 +1,7 @@
 package com.indigo.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -12,6 +14,15 @@ import jakarta.transaction.Transactional;
 @Repository
 public interface FlightRepository extends JpaRepository<Flight, Integer> 
 {
+	
+	@Query(name = "getByflightName", value = "from Flight where flightName=?1")
+	public List<Flight> getByflightName(String flightName);
+	
+	@Query(name = "getByFromTo", value = "from Flight where flightFrom=?1 and flightTo=?2")
+	public List<Flight> getByFromTo(String flightFrom, String flightTo);
+	
+	@Query(name = "getByjourneyDate", value = "from Flight where journeyDate=?1")
+	public List<Flight> getByjourneyDate(String journeyDate);
 
 	@Transactional
 	@Modifying
